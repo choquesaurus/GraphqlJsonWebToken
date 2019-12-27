@@ -68,12 +68,21 @@ export default {
                   return error;
               }
             },
-            remEstudiante:async(parent,{id})=>{
+            remEstudiante:async(parent,{id},ctx)=>{
                try {
-                   const estado=await Usuarios.findByIdAndRemove(id);
-                   return estado;
-               } catch ({message}) {
-                   return message;
+                    let datacomplete;
+                    jsonwebtoken.verify(ctx.token,keySecret,(err,data)=>{
+                            if(err)throw new GraphQLError(err);
+                            datacomplete=data;
+                    });
+                    const query=await Profesor.findOne({usuario:datacomplete.usuario,password:datacomplete.password});
+                    if(query && typeof query!=='undefined' && Object.keys(query).length>0 && 'password' in query)
+                    {
+                        const estado=await Usuarios.findByIdAndRemove(id);
+                        return estado;
+                    }
+               } catch (error) {
+                   return error;
                }
 
             },
