@@ -33,6 +33,7 @@ export default {
                         return estado;
                     }
                   
+                    
                 } catch (error) {
                     return error.message;
                 }
