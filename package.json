@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "goserver": "nodemon backend/index.js --exec  babel-node",
+    "goserver": "cross-env NODE_ENV=development nodemon backend/index.js --exec  babel-node",
     "prod": "babel  backend  -d dist --source-maps"
   },
   "keywords": [],
@@ -20,6 +20,8 @@
     "apollo-server": "^2.9.14",
     "apollo-server-express": "^2.9.14",
     "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
     "jsonwebtoken": "^8.5.1",

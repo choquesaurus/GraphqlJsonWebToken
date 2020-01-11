@@ -1,10 +1,11 @@
+require('dotenv').config();
 import {gql, AuthenticationError} from "apollo-server";
 import Usuarios from '../models/estudiantes';
 import Profesor from '../models/profesor';
 import { GraphQLError } from "graphql";
-import {keySecret} from '../config/config';
+//import {keySecret} from '../config/config';
 import jsonwebtoken, { JsonWebTokenError } from "jsonwebtoken";
-
+const keySecret=process.env.keySecret;
 export default {
     resolver:{
 
