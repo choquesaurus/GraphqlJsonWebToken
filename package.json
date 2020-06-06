@@ -17,7 +17,7 @@
     "@babel/node": "^7.7.7",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.7",
-    "apollo-server": "^2.9.14",
+    "apollo-server": "^2.14.2",
     "apollo-server-express": "^2.9.14",
     "cors": "^2.8.5",
     "cross-env": "^6.0.3",
